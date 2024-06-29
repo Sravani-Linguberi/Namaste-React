@@ -10,8 +10,13 @@ const text = React.createElement(
   "This is a react core way of creating react Element (heading)"
 );
 
-// creating react element using JSX.
-const elementText = <h1>This is jsx heading</h1>;
+// creating react element using JSX with multiple lines
+const elementText = (
+  <div>
+    <h1>This is jsx heading</h1>
+    <h2>This is head 2</h2>
+  </div>
+);
 
-//rendering element at root 
+//rendering element at root
 myRoot.render(elementText);
