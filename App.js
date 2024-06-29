@@ -1,32 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-const element = React.createElement(
+
+const myRoot = ReactDOM.createRoot(document.getElementById("root"));
+
+// creating react element in traditional way
+const text = React.createElement(
   "h1",
-  { id: "heading" },
-  "Hello world from React"
+  { id: "text" },
+  "This is a react core way of creating react Element (heading)"
 );
-console.log(element, "element");
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(element);
 
-//
+// creating react element using JSX.
+const elementText = <h1>This is jsx heading</h1>;
 
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  [
-    React.createElement(
-        "div",
-        { id: "child1" },
-        [React.createElement("h1", {}, "Heading with H1 child1"),
-        React.createElement("h2", {}, "Heading with H2")]
-      ),
-      React.createElement(
-        "div",
-        { id: "child2" },
-        [React.createElement("h1", {}, "Heading with H1 child2"),
-        React.createElement("h2", {}, "Heading with H2")]
-      )
-  ]
-);
-root.render(parent);
+//rendering element at root 
+myRoot.render(elementText);
