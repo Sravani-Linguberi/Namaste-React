@@ -18,5 +18,27 @@ const elementText = (
   </div>
 );
 
-//rendering element at root
-myRoot.render(elementText);
+// rendeting word and title funtional comp inside Heading component
+// renders react element using {} // we can write any js code inside this curly brackets
+const HeadingComponent = () => {
+  return <div id="container">
+    {text}
+    <Title />
+    <Word />
+    <h1 className="head"> heading in funtional Component</h1>
+  </div>
+}
+
+const Word = function (){
+  return (
+    <div>
+      word in function
+    </div>
+  )
+}
+const Title = () => (
+  <h2>title of the page</h2>
+)
+
+//rendering jsx at root
+myRoot.render(<HeadingComponent/>);
