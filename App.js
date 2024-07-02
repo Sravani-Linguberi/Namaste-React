@@ -10,19 +10,6 @@ const text = React.createElement(
   "This is a react core way of creating react Element (heading)"
 );
 
-const headerElement = React.createElement("div",{},
-  [React.createElement("h1",{className:"title"},"H1 heading in c1"),
-  React.createElement("h2",{className:"title"},"H2 heading in c2 "), 
-  React.createElement("h3",{className:"ttile"},"H3 heading in c3")])
-
-
-  const headerElementJsx = () =>{
-    return <div>
-      <h1>H1 in jsx</h1>
-      <h2>H2 in jsx</h2>
-      <h3>H3 in jsx</h3>
-    </div>
-  }
 // creating react element using JSX with multiple lines
 const elementText = (
   <div>
@@ -35,12 +22,11 @@ const elementText = (
 // renders react element using {} // we can write any js code inside this curly brackets
 const HeadingComponent = () => {
   return <div id="container">
-    {headerElement}
-    {headerElementJsx()}
     {text}
     <Title />
     <Word />
     <h1 className="head"> heading in funtional Component</h1>
+    <Name/>
   </div>
 }
 
@@ -51,9 +37,15 @@ const Word = function (){
     </div>
   )
 }
-const Title = () => (
-  <h2>title of the page</h2>
-)
+
+// jsx with return 
+const Title = () => {
+  return (<h2>title of the page &&</h2>)
+}
+
+// jsx without return
+const Name = () => (<h2>name text</h2>)
+
 
 //rendering jsx at root
 myRoot.render(<HeadingComponent/>);
