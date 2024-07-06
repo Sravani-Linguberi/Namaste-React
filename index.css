@@ -67,3 +67,7 @@
     letter-spacing: -0.3px;
     color: rgba(2, 6, 12, 0.75);
 }
+
+.filter-btn {
+    margin: 10px;
+}
