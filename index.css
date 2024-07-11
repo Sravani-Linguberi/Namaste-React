@@ -24,9 +24,6 @@
     margin: 0px 10px;
 }
 
-.search {
-    padding: 10px;
-}
 
 .restCard {
     width: 200px;
@@ -69,5 +66,19 @@
 }
 
 .filter-btn {
-    margin: 10px;
+    margin: 5px;
+}
+
+.shimmer-container {
+    height: 300px;
+    background-color: #f0f0f0;
+}
+
+.logBtn {
+    padding: 10px;
+}
+ 
+.search-bar {
+    display: flex;
+    margin: 5px;
 }

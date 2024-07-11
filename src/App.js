@@ -10,7 +10,7 @@ const AppLoader = () => {
   return (
     <div>
       <Header />
-      <Search  />
+      {/* <Search  /> */}
       <Body />
       <Footer />
     </div>
