@@ -19,10 +19,10 @@ const Body = () => {
       // const res = await fetch(
       //   "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.37240&lng=78.43780&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       // );
-      const data = await res.json();
-      console.log(data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+      // const data = await res.json();
+      console.log(res.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
       let resData =
-        data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      res?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
       resData = resData ? resData : restaurantsList;
       setResList(resData);
@@ -47,7 +47,7 @@ const Body = () => {
         <div className="filter-btn">
           <button
             onClick={() => {
-              setResList(resList.filter((val) => val.info.avgRating > 4));
+              setFilteredRes(resList.filter((val) => val.info.avgRating > 4));
             }}
           >
             filter top rated
