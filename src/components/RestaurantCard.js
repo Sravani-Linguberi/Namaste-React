@@ -1,6 +1,10 @@
-import { CDN_URL } from '../utils/constants';
+import { CDN_URL , dummyImg} from '../utils/constants';
 
 const RestaurantCard = (props) => {
+  const imgError = (e) => {
+    console.log(e, " e");
+    e.target.src = dummyImg;
+  }
     const {
       name,
       costForTwo,
@@ -18,7 +22,8 @@ const RestaurantCard = (props) => {
             CDN_URL +
             cloudinaryImageId
           }
-          alt="Restaurant card"
+          alt="Restaurant"
+          onError={imgError}
         />
         <div className="res-name">{name} </div>
         <div>{costForTwo}</div>

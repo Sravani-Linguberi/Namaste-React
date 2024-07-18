@@ -5,17 +5,17 @@ import Body from './components/Body';
 import Search from './components/Search';
 import Footer from "./components/Footer";
 import About from "./components/About";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
 import Contact from "./components/Contact";
+import ResMenu from './components/ResMenu';
 
 
 const AppLoader = () => {
   return (
     <div>
       <Header />
-      {/* <Search  /> */}
-      <Body />
+      <Outlet />
       <Footer />
     </div>
   );
@@ -24,15 +24,26 @@ const AppLoader = () => {
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element : <AppLoader />,
+    element: <AppLoader />,
+    children : [
+      {
+        path: '/',
+        element : <Body/>,
+      },
+      {
+        path : "/about",
+        element : <About />
+      },
+      {
+        path : '/contact',
+        element: <Contact /> 
+      },{
+        path : '/city/:city/:resId',
+        element : <ResMenu />
+      }
+    ],
     errorElement : <ErrorPage/>
-  },{
-    path : '/about',
-    element : <About />
-  },{
-    path : '/contact',
-    element : <Contact />
-  }
+  },
 ])
 const myRoot = ReactDOM.createRoot(document.getElementById("root"));
 myRoot.render(<RouterProvider router={appRouter}/>);

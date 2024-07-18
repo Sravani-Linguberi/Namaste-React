@@ -2,11 +2,14 @@ import RestaurantCard from "./RestaurantCard";
 import { restaurantsList } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [filteredRes, setFilteredRes] = useState([]);
+  const [city , setCity] = useState('');
+  let cityName= '';
 
   useEffect(() => {
     fetchData();
@@ -20,7 +23,7 @@ const Body = () => {
       //   "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.37240&lng=78.43780&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       // );
       // const data = await res.json();
-      console.log(res.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+      setCity(res.data?.cards[11]?.card?.card?.citySlug);
       let resData =
       res?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
@@ -56,9 +59,14 @@ const Body = () => {
       </div>
 
       <div className="card-container">
-        {filteredRes.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} restData={restaurant} />
-        ))}
+        {filteredRes.map((restaurant) => {
+        const routeUrl = '/city/'+city+'/'+restaurant.info.id;
+        return(
+          <Link to={routeUrl} key={restaurant.info.id}>
+            <RestaurantCard key={restaurant.info.id} restData={restaurant} />
+          </Link>
+        )}
+        )}
       </div>
     </div>
   );

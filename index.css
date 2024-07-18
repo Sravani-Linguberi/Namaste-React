@@ -82,3 +82,16 @@
     display: flex;
     margin: 5px;
 }
+
+.menu-card {
+    display: flex;
+    justify-content: space-between;
+    margin : 2% 20%;
+}
+
+
+.menu-img {
+    border-radius: 10px;
+    height: 150px;
+    width: 150px;
+}
