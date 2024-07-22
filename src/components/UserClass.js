@@ -3,16 +3,15 @@ import React from "react";
 class UserClass extends React.Component {
     
     constructor(props){
-        super(props); // super will calls the parent class constructor
-        console.log(this.props); // we can access the props here
+        super(); // super will calls the parent class constructor
     }
 
     render(){
-        console.log(this.props, "Class");
+        const {name, place} = this.props;
         return(
             <div className="user-card">
-                <h3>name : {this.props.name} </h3>
-                <h4>place: {this.props.place} </h4>
+                <h3>name : {name} </h3>
+                <h4>place: {place} </h4>
                 <p>contact: sravanisrii</p>
             </div>
         )

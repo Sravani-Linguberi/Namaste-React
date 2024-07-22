@@ -17,5 +17,19 @@ if no dependency array - useEffect will trigger after every render of that compo
 if dependency array is empty [] - useEffect will trigger on first render of the component, ( we can use at the time of api call );
 if dependency array is having a variable- it will call on everytime that variable is updated. (eg: searchText)
 
+# class comp
+
+    constructor(props){
+        super(props); // super will calls the parent class constructor
+        console.log(this.props); // we can access the props here
+    }
+
+    constructor(props){
+        super(); // super will calls the parent class constructor
+        console.log(this.props); // we can not access the props  - Undefined
+    }
+
+
+
 
 
