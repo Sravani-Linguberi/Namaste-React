@@ -22,12 +22,20 @@ if dependency array is having a variable- it will call on everytime that variabl
     constructor(props){
         super(props); // super will calls the parent class constructor
         console.log(this.props); // we can access the props here
+        this.state = {
+            count : 0
+        }
     }
 
     constructor(props){
         super(); // super will calls the parent class constructor
         console.log(this.props); // we can not access the props  - Undefined
     }
+
+    this.setState({
+        count : this.state.count + 1 // never update the state directly. use setState
+    })
+
 
 
 
