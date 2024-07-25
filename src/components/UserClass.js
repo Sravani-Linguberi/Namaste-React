@@ -17,7 +17,11 @@ class UserClass extends React.Component {
         const data = await res.json();
         this.setState({
             details: data
-        })
+        });
+
+        this.timer = setInterval(()=>{
+            console.log("timer is counting")
+        }, 1000)
     }
 
     componentDidUpdate() {
@@ -25,6 +29,7 @@ class UserClass extends React.Component {
     }
 
     componentWillUnmount() {
+        clearInterval(this.timer);
         console.log( "componentWillUnmount")
     }
 

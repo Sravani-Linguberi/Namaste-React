@@ -22,9 +22,9 @@ class About extends React.Component {
         return (
             <div>
                 <h3>About Us Page</h3>
-                {/* <User name={'sravani'} place={'srikakulam(fun)'} /> */}
+                <User name={'sravani'} place={'srikakulam(fun)'} />
                 <UserClass  name={'First'} place={'srikakulam(class)'} />
-                <UserClass  name={'Second'} place={'srikakulam(class)'} />
+                {/* <UserClass  name={'Second'} place={'srikakulam(class)'} /> */}
             </div>
         )
     }
