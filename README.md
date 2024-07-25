@@ -36,6 +36,14 @@ if dependency array is having a variable- it will call on everytime that variabl
         count : this.state.count + 1 // never update the state directly. use setState
     })
 
+    componentDidMount // it calls after intial render 
+
+    componentDidUpdate // calls after every subsequence or every re-render of the comp
+
+    componentWillUnmount // calls before unmounting. clearing timers etc.
+
+    
+
 
 
 
