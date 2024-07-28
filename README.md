@@ -42,6 +42,9 @@ if dependency array is having a variable- it will call on everytime that variabl
 
     componentWillUnmount // calls before unmounting. clearing timers etc.
 
+
+# windows + ; --> emoji shortcut
+
     
 
 

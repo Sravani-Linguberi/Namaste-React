@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { LOGO_URL } from '../utils/constants';
 import { Link } from 'react-router-dom';
+import useOnlineIndicator from '../utils/useOnlineIndicator';
 
 const Header = () => {
   const [logBtn , setLogBtn] = useState("login");
@@ -8,6 +9,8 @@ const Header = () => {
   useEffect(()=>{
   console.log("useEffect called in header")
   },[]);
+
+  const onlineStatus = useOnlineIndicator();
   
     return (
       <div className="header-container">
@@ -17,6 +20,7 @@ const Header = () => {
         />
         <div className="nav-container">
           <ul className='dis-flex'>
+            <li>Online Status {onlineStatus ? "🟢" : "🔴"}</li>
             <li><Link to={'/'}>Home</Link></li>
             <li><Link to={'/about'}>About</Link></li>
             <li><Link to={'/contact'}>contact us</Link></li>

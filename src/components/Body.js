@@ -3,6 +3,7 @@ import { restaurantsList } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineIndicator from "../utils/useOnlineIndicator";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -38,6 +39,11 @@ const Body = () => {
   const searchRes = () =>{
     const filteredList = resList.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
     setFilteredRes(filteredList);
+  }
+  
+  const onlineStatus = useOnlineIndicator();
+  if(!onlineStatus){
+    return <h3>Looks like your offline, Please check your internet connection!</h3>
   }
 
   return resList.length === 0 ? (
