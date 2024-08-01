@@ -1,14 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from './components/Header';
 import Body from './components/Body';
-import Search from './components/Search';
 import Footer from "./components/Footer";
-import About from "./components/About";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
-import Contact from "./components/Contact";
 import ResMenu from './components/ResMenu';
+// import Search from './components/Search';
+// import Contact from "./components/Contact";
+// import About from "./components/About";
 
 
 const AppLoader = () => {
@@ -21,6 +21,9 @@ const AppLoader = () => {
   );
 };
 
+// lazy loading way - 1
+const Contact = lazy(() =>  import("./components/Contact")) ;
+
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -32,13 +35,15 @@ const appRouter = createBrowserRouter([
       },
       {
         path : "/about",
-        element : <About />
+        lazy :  async () => {  // lazy loading way - 2
+          let  About  = await import('./components/About')
+          return { Component: About.default }}, 
       },
       {
         path : '/contact',
-        element: <Contact /> 
+        element: <Suspense fallback={<h2>Loading Screen</h2>}> <Contact /> </Suspense> 
       },{
-        path : '/city/:city/:resId',
+        path : '/city/:city/:resId',  
         element : <ResMenu />
       }
     ],

@@ -1,19 +1,25 @@
 # Namaste React learing by Sravani
 
-# two types of Export/Imports
+# Parcel
+- Dev bulid
+- local server
+- HMR - Hot Module Replacement
+- File watching Algorithm - written in C++
+- caching - faster builds
+- Image Optimization
+- Minification
+- bundling
+- compress
+- consistent hashing 
+- code splitting
+- differential bundling - support older browsers
+- diagnostic
+- Error handling
+- https
+- tree shaking - remove unused code
+- different dev and prod bundles
 
-# -Default export / import
- export default component;
- import component from 'path';
-
-# -named export/import
- export const component;
- import { component } from "path";
-
-# React hooks - Normal js utility function which is writen by fb developers in side react;
-
-# useEffect(()=>{},[])
-if no dependency array - useEffect will trigger after every render of that component
+pendency array - useEffect will trigger after every render of that component
 if dependency array is empty [] - useEffect will trigger on first render of the component, ( we can use at the time of api call );
 if dependency array is having a variable- it will call on everytime that variable is updated. (eg: searchText)
 
@@ -45,7 +51,7 @@ if dependency array is having a variable- it will call on everytime that variabl
 
 # windows + ; --> emoji shortcut
 
-    
+# 2 ways of lazy loading in app js. after serve individual files will create in dist folder
 
 
 
