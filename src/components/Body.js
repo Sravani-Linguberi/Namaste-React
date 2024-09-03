@@ -50,10 +50,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body-container">
-      <div className="search-bar">
-        <input placeholder="search restaurant" value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
-        <button className="search-btn" onClick={searchRes}>Search</button>
-        <div className="filter-btn">
+      <div className="search-bar flex items-center">
+        <input className="border border-solid border-black rounded px-2 m-2 h-10" placeholder="search restaurant" value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
+        <button className="border border-solid border-black p-2 m-3 rounded-lg bg-green-500" onClick={searchRes}>Search</button>
+        <div className="filter-btn border border-solid border-black rounded-lg bg-orange-500 p-2 m-3">
           <button
             onClick={() => {
               setFilteredRes(resList.filter((val) => val.info.avgRating > 4));
@@ -64,7 +64,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="card-container">
+      <div className="card-container flex flex-wrap justify-around">
         {filteredRes.map((restaurant) => {
         const routeUrl = '/city/'+city+'/'+restaurant.info.id;
         return(

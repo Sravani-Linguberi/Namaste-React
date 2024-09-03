@@ -13,19 +13,19 @@ const Header = () => {
   const onlineStatus = useOnlineIndicator();
   
     return (
-      <div className="header-container">
+      <div className="flex justify-between bg-pink-100">
         <img
-          className="app-logo"
+          className="w-50 h-20"
           src={LOGO_URL}
         />
-        <div className="nav-container">
-          <ul className='dis-flex'>
-            <li>Online Status {onlineStatus ? "🟢" : "🔴"}</li>
-            <li><Link to={'/'}>Home</Link></li>
-            <li><Link to={'/about'}>About</Link></li>
-            <li><Link to={'/contact'}>contact us</Link></li>
-            <li>cart</li>
-            <li><button className='logBtn' onClick={()=>{
+        <div className="flex items-center justify-between font-large">
+          <ul className="flex ">
+            <li className='mx-3'>Online Status {onlineStatus ? "🟢" : "🔴"}</li>
+            <li className='mx-3'><Link to={'/'}>Home</Link></li>
+            <li className='mx-3'><Link to={'/about'}>About</Link></li>
+            <li className='mx-3'><Link to={'/contact'}>contact us</Link></li>
+            <li className='mx-3'>cart</li>
+            <li className='mx-3'><button className='logBtn' onClick={()=>{
               logBtn === 'login' ? setLogBtn("logout") : setLogBtn("login")
             }}>{logBtn}</button></li>
           </ul>
