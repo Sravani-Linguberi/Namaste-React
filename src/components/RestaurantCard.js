@@ -15,9 +15,9 @@ const RestaurantCard = (props) => {
       sla: { deliveryTime },
     } = props?.restData?.info;
     return (
-      <div className="restCard bg-[lightgoldenrodyellow] w-[200px] p-3 m-2 rounded-xl hover:cursor-pointer">
+      <div className="restCard bg-[lightgoldenrodyellow] w-[200px] p-3 mx-6 my-4 rounded-xl hover:cursor-pointer">
         <img
-          className="restImg h-[200px] rounded-xl"
+          className="restImg w-[250px] h-[150px] rounded-xl"
           src={
             CDN_URL +
             cloudinaryImageId
@@ -35,5 +35,14 @@ const RestaurantCard = (props) => {
       </div>
     );
 };
+
+export const withTopRatedLabel = (RestaurantCardIn) => { // higher order component
+  return (props) => { //restData will pass here
+    return <>
+      <div className='absolute mt-2 ml-4 bg-slate-700 text-white rounded-md'>topRated</div>
+      <RestaurantCardIn {...props}/>
+    </>
+  }
+}
 
 export default RestaurantCard;

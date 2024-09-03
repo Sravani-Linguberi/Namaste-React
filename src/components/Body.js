@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard , {withTopRatedLabel}from "./RestaurantCard";
 import { restaurantsList } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -45,6 +45,8 @@ const Body = () => {
   if(!onlineStatus){
     return <h3>Looks like your offline, Please check your internet connection!</h3>
   }
+  
+  const  RestaurantWithLabel = withTopRatedLabel(RestaurantCard);
 
   return resList.length === 0 ? (
     <Shimmer />
@@ -67,9 +69,14 @@ const Body = () => {
       <div className="card-container flex flex-wrap justify-around">
         {filteredRes.map((restaurant) => {
         const routeUrl = '/city/'+city+'/'+restaurant.info.id;
+        console.log(restaurant, " restaurant body")
         return(
           <Link to={routeUrl} key={restaurant.info.id}>
-            <RestaurantCard key={restaurant.info.id} restData={restaurant} />
+            {
+              restaurant.info.avgRating > 4 ? <RestaurantWithLabel key={restaurant.info.id} restData={restaurant} /> :
+               <RestaurantCard key={restaurant.info.id} restData={restaurant} />
+            }
+            
           </Link>
         )}
         )}
