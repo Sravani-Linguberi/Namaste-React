@@ -4,22 +4,24 @@ import { useParams } from "react-router-dom";
 import Menu from './Menu';
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from './RestaurantCategory';
 
 
 const ResMenu = () => {
     const {resId} = useParams();
     const [resData, restaurantMenu]  = useRestaurantMenu(resId);
-    console.log(resData, restaurantMenu)
+    console.log(resData, restaurantMenu, "resData in res MEnu")
    
     return restaurantMenu?.length ? (
-        <div>
-            <h2 style={{margin : "5% 20%"}}>
+        <>
+            <div className="font-bold text-center mx-auto my-10 text-xl" >
                 { resData?.data?.cards[0]?.card?.card?.text }
-            </h2>
+            </div>
             {
-                restaurantMenu?.map(val => <Menu key={val?.card?.info?.id} itemDetails= {val?.card}/>)
+                restaurantMenu?.map(val => <RestaurantCategory key={val.card.card.title} data={val?.card?.card}/>)
+                // restaurantMenu?.map(val => <Menu key={val?.card?.info?.id} itemDetails= {val?.card}/>)
             }
-        </div>
+        </>
     ) : <> <h3>Loading menu</h3> <Shimmer/></>
 }
 
