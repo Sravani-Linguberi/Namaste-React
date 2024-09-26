@@ -10,13 +10,12 @@ import RestaurantCategory from './RestaurantCategory';
 const ResMenu = () => {
     const {resId} = useParams();
     const [resData, restaurantMenu]  = useRestaurantMenu(resId);
-    console.log(resData, restaurantMenu, "resData in res MEnu")
    
     return restaurantMenu?.length ? (
         <>
             <div className="font-bold text-center mx-auto my-10 text-xl" >
                 { resData?.data?.cards[0]?.card?.card?.text }
-            </div>
+            </div>    
             {
                 restaurantMenu?.map(val => <RestaurantCategory key={val.card.card.title} data={val?.card?.card}/>)
                 // restaurantMenu?.map(val => <Menu key={val?.card?.info?.id} itemDetails= {val?.card}/>)
