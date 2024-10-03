@@ -1,6 +1,7 @@
 import User from "./User";
 import UserClass from './UserClass';
 import React from "react";
+import UserContext from '../utils/UserContext';
 
 class About extends React.Component {
     constructor(){
@@ -23,7 +24,16 @@ class About extends React.Component {
             <div>
                 <h3>About Us Page</h3>
                 <User name={'sravani'} place={'srikakulam(fun)'} />
+
+                {/* consuming context hook in class component */}
+                <UserContext.Consumer>
+                    {({ userName }) => (
+                        <div className="font-bold">User Name : {userName}</div>
+                    )}
+                </UserContext.Consumer>
+
                 <UserClass  name={'First'} place={'srikakulam(class)'} />
+                
                 {/* <UserClass  name={'Second'} place={'srikakulam(class)'} /> */}
             </div>
         )
