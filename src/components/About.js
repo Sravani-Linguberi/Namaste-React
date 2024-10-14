@@ -27,8 +27,8 @@ class About extends React.Component {
 
                 {/* consuming context hook in class component */}
                 <UserContext.Consumer>
-                    {({ userName }) => (
-                        <div className="font-bold">User Name : {userName}</div>
+                    {({ loggedInUser }) => (
+                        <div className="font-bold">User Name : {loggedInUser}</div>
                     )}
                 </UserContext.Consumer>
 

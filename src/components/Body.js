@@ -1,15 +1,17 @@
 import RestaurantCard , {withTopRatedLabel}from "./RestaurantCard";
 import { restaurantsList } from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineIndicator from "../utils/useOnlineIndicator";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [filteredRes, setFilteredRes] = useState([]);
   const [city , setCity] = useState('');
+  const {loggedInUser, setUserName} = useContext(UserContext); 
   let cityName= '';
 
   useEffect(() => {
@@ -64,6 +66,9 @@ const Body = () => {
             filter top rated
           </button>
         </div>
+      <input className="border border-solid border-black rounded px-2 m-2 h-10" value={loggedInUser} 
+      onChange={(e) => setUserName(e.target.value)}/>
+
       </div>
 
       <div className="card-container flex flex-wrap justify-around">
@@ -81,6 +86,7 @@ const Body = () => {
         )}
         )}
       </div>
+
     </div>
   );
 };
