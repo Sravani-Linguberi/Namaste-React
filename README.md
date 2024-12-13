@@ -1,5 +1,10 @@
 # Namaste React learing by Sravani
 
+# clone the App
+npm install
+npm start
+
+
 # Parcel
 - Dev bulid
 - local server
